@@ -1,0 +1,28 @@
+
+<%- include("partials/header"); -%>
+<h1 class="page-intro">Home</h1>
+<p style="padding: 0 2px 25px;"> Welcome to this blog site. This website was created to share opinions on the internet. Please log in to create or delete posts. </p>
+
+
+<%  posts.forEach(function(post){ %>
+<div class="card">
+<form action="/" method="post" >
+<h1 style="display: inline; vertical-align: top;"><%=post.title%></h1>
+<p style="padding: 10px 10px 0;">By: <strong><%=post.username%></strong></p>
+</form>
+<p style="padding: 10px 10px 0;">
+
+  <% if (post.content.length >= 100){ %>
+<%=post.content.substring(0, 100) + " ..."%>
+
+<a href="/posts/<%=post._id%>">Expanded View</a>
+<%}else{%>
+  <%=post.content%>
+  <%}%>
+</p>
+</div>
+
+<% }) %>
+
+
+<%- include("partials/footer"); -%>

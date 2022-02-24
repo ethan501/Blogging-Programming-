@@ -1,0 +1,29 @@
+
+<%- include("partials/loggedInHeader"); -%>
+    <h1 class="page-intro">Home</h1>
+    <p style="padding: 0 2px 25px;"> <%= startingContent %> </p>
+
+    <a style="margin-bottom: 25px;" href="/compose" class="btn btn-primary margin-bottom">+ New Post</a>
+  <%  posts.forEach(function(post){ %>
+    <div class="card">
+<form action="/" method="post" >
+    <h1 style="display: inline; vertical-align: top;"><%=post.title%></h1>
+    <p style="padding: 10px 10px 0;">By: <strong><%=post.username%></strong></p>
+    <button class="btn btn-danger right" type="submit" style="float: right; margin-right: 25px;" name="delete" value="<%=post._id%>">Delete: <%=post.title%></button>
+  </form>
+    <p style="padding: 10px 10px 0;">
+
+      <% if (post.content.length >= 100){ %>
+    <%=post.content.substring(0, 100) + " ..."%>
+   
+    <a href="/posts/<%=post._id%>">Expanded View</a>
+    <%}else{%>
+      <%=post.content%>
+      <%}%>
+    </p>
+  </div>
+
+    <% }) %>
+   
+
+<%- include("partials/footer"); -%>
