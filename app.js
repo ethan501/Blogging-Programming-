@@ -37,8 +37,10 @@ const homeStartingContent =
 const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD;
 
 mongoose.connect(
-  "mongodb+srv://blogSite:Yue45kloK@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
+  "mongodb+srv://blogSite:Test123@cluster0.oakkp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
+
+
 
 const userSchema = new mongoose.Schema({
   username: String,
