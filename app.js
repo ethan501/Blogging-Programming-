@@ -32,10 +32,10 @@ app.use(passport.session());
 const homeStartingContent =
   "Welcome to this blog site. Feel free to add content by pressing the compose button. This website was created to share opinions on the internet. Please be responsible.";
 
-const connectionString = process.env.CONNECTIONSTRING
+const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD
 
 mongoose.connect(
-  connectionString
+  "mongodb+srv://b0_0ms:"+connectionPassword+ "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
 
 const userSchema = new mongoose.Schema({
