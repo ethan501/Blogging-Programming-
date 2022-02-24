@@ -37,7 +37,7 @@ const homeStartingContent =
 const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD;
 
 mongoose.connect(
-  "mongodb+srv://blogSite:Test123@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
+  "mongodb+srv://blogSite:"+connectionPassword+"@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
 
 
