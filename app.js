@@ -23,7 +23,7 @@ app.use(
   session({
     name: "session",
     keys: [
-      "This is top secret "+ process.env.COOKEU_KEY1, +"and one more secret"
+      "This is top secret "+ process.env.COOKEU_KEY1,"and one more secret"
     ],
   })
 );
