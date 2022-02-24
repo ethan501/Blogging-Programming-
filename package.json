@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ethan501/Blogging-Programming-#readme",
   "dependencies": {
     "body-parser": "^1.19.2",
+    "cookie-session": "^2.0.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
@@ -30,6 +31,5 @@
     "mongoose": "^6.2.3",
     "passport": "^0.5.2",
     "passport-local-mongoose": "^6.1.0"
-  },
-  "devDependencies": {}
+  }
 }
