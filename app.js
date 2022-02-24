@@ -23,7 +23,7 @@ app.use(
   session({
     name: "session",
     keys: [
-      "This is a secret"
+      "This is a secret", "and one more secret"
     ],
   })
 );
