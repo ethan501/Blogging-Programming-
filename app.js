@@ -21,7 +21,7 @@ const secret = process.env.SECRET;
 
 app.use(
   session({
-    secret: secret,
+    secret: "This website is protected by passport",
     resave: false,
     saveUninitialized: false,
   })
@@ -36,9 +36,7 @@ const homeStartingContent =
 const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD;
 
 mongoose.connect(
-  "mongodb+srv://blogSite:" +
-    connectionPassword +
-    "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
+  "mongodb+srv://blogSite:Yue45kloK@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
 
 const userSchema = new mongoose.Schema({
