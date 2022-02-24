@@ -23,8 +23,8 @@ app.use(
   session({
     name: "session",
     keys: [
-      process.env.COOKEU_KEY1,
-      process.env.COOKEU_KEY2,
+      ""+process.env.COOKEU_KEY1,
+      ""+process.env.COOKEU_KEY2,
     ],
   })
 );
