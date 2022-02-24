@@ -154,6 +154,7 @@ app.post("/login", function (req, res) {
   req.login(user, function (err) {
     if (err) {
       console.log(err);
+      res.redirect("/login");
     } else {
       passport.authenticate("local")(req, res, function () {
         res.redirect("/");
@@ -200,11 +201,9 @@ app.get("/posts/:postId", function (req, res) {
     }
   });
 });
-/* 
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
-} */
-app.listen(3050, function () {
-  console.log("Server started succesfully on 3050");
-});
+}
+app.listen(port);
