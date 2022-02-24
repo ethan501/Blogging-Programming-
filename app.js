@@ -34,10 +34,10 @@ app.use(passport.session());
 const homeStartingContent =
   "Welcome to this blog site. Feel free to add content by pressing the compose button. This website was created to share opinions on the internet. Please be responsible.";
 
-const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD;
+/* const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD; */
 
 mongoose.connect(
-  "mongodb+srv://blogSite:"+connectionPassword+"@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
+  "mongodb+srv://blogSite:"+process.env.MONGOOSE_PASSWORD+"@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
 
 
