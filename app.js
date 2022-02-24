@@ -101,11 +101,11 @@ app.post("/", function (req, res) {
   res.redirect("/");
 });
 
-/* app.get("/register", function (req, res) {
+app.get("/register", function (req, res) {
   res.render("register");
-}); */
+});
 
-/* app.post("/register", function (req, res) {
+app.post("/register", function (req, res) {
   User.register(
     { username: req.body.username },
     req.body.password,
@@ -119,7 +119,7 @@ app.post("/", function (req, res) {
       }
     }
   );
-}); */
+});
 
 app.get("/guestHome", function (req, res) {
   Post.find({}, function (err, posts) {
