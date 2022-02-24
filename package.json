@@ -4,6 +4,7 @@
   "description": "Blog site to show CRUD and user authentication",
   "main": "app.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,7 +14,7 @@
   "author": "Ethan Harris",
   "license": "ISC",
   "engines": {
-    "node": "v16.13.2"
+    "node": "16.13.2"
   },
   "bugs": {
     "url": "https://github.com/ethan501/Blogging-Programming-/issues"
