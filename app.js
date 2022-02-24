@@ -23,7 +23,8 @@ app.use(
   session({
     name: "session",
     keys: [
-      "This is top secret "+ process.env.COOKEU_KEY1,"and one more secret"
+      "This is top secret " + process.env.COOKEU_KEY1,
+      "and " + process.env.COOKEU_KEY2 + "one more secret",
     ],
   })
 );
@@ -37,10 +38,10 @@ const homeStartingContent =
 /* const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD; */
 
 mongoose.connect(
-  "mongodb+srv://blogSite:"+process.env.MONGOOSE_PASSWORD+"@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
+  "mongodb+srv://blogSite:" +
+    process.env.MONGOOSE_PASSWORD +
+    "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
-
-
 
 const userSchema = new mongoose.Schema({
   username: String,
