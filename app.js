@@ -21,9 +21,10 @@ const secret = process.env.SECRET;
 
 app.use(
   session({
-    secret: "This website is protected by passport",
-    resave: false,
-    saveUninitialized: false,
+    name: "session",
+    keys: [
+      "This is a secret"
+    ],
   })
 );
 
