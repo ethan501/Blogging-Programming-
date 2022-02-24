@@ -1,5 +1,6 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
 
+dotenv.config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -16,7 +17,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const secret = process.env.SECRET
+const secret = process.env.SECRET;
 
 app.use(
   session({
@@ -32,10 +33,12 @@ app.use(passport.session());
 const homeStartingContent =
   "Welcome to this blog site. Feel free to add content by pressing the compose button. This website was created to share opinions on the internet. Please be responsible.";
 
-const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD
+const connectionPassword = process.env.CONNECTIONSTRINGPASSWORD;
 
 mongoose.connect(
-  "mongodb+srv://b0_0ms:"+connectionPassword+ "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
+  "mongodb+srv://b0_0ms:" +
+    connectionPassword +
+    "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
 
 const userSchema = new mongoose.Schema({
@@ -70,7 +73,7 @@ let currentUser = "";
 
 app.use(function (req, res, next) {
   currentUser = req.user;
-  
+
   next();
 });
 
@@ -81,7 +84,6 @@ app.get("/", function (req, res) {
         res.render("home", {
           startingContent: homeStartingContent,
           posts: posts,
-         
         });
       }
     });
