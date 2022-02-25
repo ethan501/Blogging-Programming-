@@ -21,7 +21,7 @@ const secret = process.env.SECRET;
 
 app.use(
   session({
-    name: "session",
+    name: "local",
     keys: [
       ""+process.env.COOKEU_KEY1,
       ""+process.env.COOKEU_KEY2,
@@ -114,7 +114,7 @@ app.post("/register", function (req, res) {
       if (err) {
         res.render("register", { err: err });
       } else {
-        passport.authenticate("session")(req, res, function () {
+        passport.authenticate("local")(req, res, function () {
           res.redirect("/");
         });
       }
