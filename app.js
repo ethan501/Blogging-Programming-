@@ -158,11 +158,9 @@ app.post("/login", function (req, res) {
   });
 
   req.login(user, function (err) {
-    if (res.status(400) || res.status(401)) {
-      if (err) {
-        console.log(err);
-        res.redirect("/login");
-      }
+    if (err || res.status(400) || res.status(401)) {
+      console.log(err);
+      res.redirect("/login");
     } else {
       passport.authenticate("local")(req, res, function () {
         res.redirect("/");
