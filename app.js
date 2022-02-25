@@ -114,7 +114,7 @@ app.post("/register", function (req, res) {
       if (err) {
         res.render("register", { err: err });
       } else {
-        passport.authenticate("local")(req, res, function () {
+        passport.authenticate("session")(req, res, function () {
           res.redirect("/");
         });
       }
