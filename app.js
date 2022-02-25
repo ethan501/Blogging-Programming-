@@ -165,9 +165,6 @@ app.post("/login", function (req, res) {
       passport.authenticate("local")(req, res, function () {
         res.redirect("/");
       });
-      if(res.status(400)||res.status(401)){
-        res.redirect("/login");
-      }
     }
   });
 });
