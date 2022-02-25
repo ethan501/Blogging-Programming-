@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+const https = require("https");
 
 const session = require("cookie-session");
 const passport = require("passport");
@@ -22,10 +23,7 @@ const secret = process.env.SECRET;
 app.use(
   session({
     name: "local",
-    keys: [
-      ""+process.env.COOKEU_KEY1,
-      ""+process.env.COOKEU_KEY2,
-    ],
+    keys: ["" + process.env.COOKEU_KEY1, "" + process.env.COOKEU_KEY2],
   })
 );
 
@@ -38,7 +36,6 @@ const userSchema = new mongoose.Schema({
 userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model("User", userSchema);
-
 
 passport.use(User.createStrategy());
 
@@ -55,8 +52,6 @@ mongoose.connect(
     process.env.MONGOOSE_PASSWORD +
     "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
-
-
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -163,9 +158,11 @@ app.post("/login", function (req, res) {
   });
 
   req.login(user, function (err) {
-    if (err) {
-      console.log(err);
-      res.redirect("/login");
+    if (res.status(400) || res.status(401)) {
+      if (err) {
+        console.log(err);
+        res.redirect("/login");
+      }
     } else {
       passport.authenticate("local")(req, res, function () {
         res.redirect("/");
