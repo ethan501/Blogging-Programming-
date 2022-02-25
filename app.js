@@ -29,6 +29,17 @@ app.use(
   })
 );
 
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  secret: [],
+});
+
+userSchema.plugin(passportLocalMongoose);
+
+const User = new mongoose.model("User", userSchema);
+
+
 passport.use(User.createStrategy());
 
 app.use(passport.initialize());
@@ -45,13 +56,7 @@ mongoose.connect(
     "@cluster0.oakkp.mongodb.net/blogDataBase2?retryWrites=true&w=majority"
 );
 
-const userSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-});
 
-userSchema.plugin(passportLocalMongoose);
-const User = mongoose.model("User", userSchema);
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
