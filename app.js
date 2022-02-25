@@ -29,6 +29,8 @@ app.use(
   })
 );
 
+passport.use(User.createStrategy());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
